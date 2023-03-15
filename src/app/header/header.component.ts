@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BuscadorComponent } from '../buscador/buscador.component';
 import { IAnalisis } from '../interfaces/Ianalisis';
-import { HttpClient } from '@angular/common/http';
 import { AnalisisService } from '../services/analisis-service.service';
+import { AnalisisComponent } from '../pages/analisis/analisis.component';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +10,25 @@ import { AnalisisService } from '../services/analisis-service.service';
 })
 export class HeaderComponent implements OnInit{
 
+  analisisFiltrados: IAnalisis[];
 
-  
-  buscarAnalisis(event: KeyboardEvent){
-    const valor = (event.target as HTMLInputElement).value;
+  constructor(public analisisService: AnalisisService){
     
-    console.log(valor)
   }
 
+  buscarAnalisis(event: KeyboardEvent){
+    const valor = (event.target as HTMLInputElement).value;
+    if (valor === '') {
+      this.analisisFiltrados = [];
+    } else {
+      this.analisisFiltrados = this.analisisService.analisis.filter(analisis => analisis.analisis.toLowerCase().includes(valor.toLowerCase()));
+    }
+  }
+
+  mostrarAnalisis(analisis: IAnalisis){
+    this.analisisService.mostrarAnalisis(analisis);
+  }
 
   ngOnInit(): void {
-    
   }
 }

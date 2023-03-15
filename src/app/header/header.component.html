@@ -1,18 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-light" href="home">Home <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input type="text"
-               placeholder="Buscar..."  
-               id="buscador-analisis"     
-               class="form-control"
-               (keyup)="buscarAnalisis($event)"
-               >
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                placeholder="Buscar..."  
+                id="buscador-analisis"     
+                class="form-control"
+                (keyup)="buscarAnalisis($event)"
+                >
       </form>
     </div>
 </nav>
+<div id="resultados">
+  <button *ngFor="let resultado of analisisFiltrados" class="list-group-item list-group-item-action" 
+    (click)="analisisService.mostrarAnalisis(resultado)">{{ resultado.analisis }} 
+  </button>
+</div>
+

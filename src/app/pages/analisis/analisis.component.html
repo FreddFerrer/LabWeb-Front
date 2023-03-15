@@ -10,10 +10,10 @@
       <div class="col-md-6">
         <h2>Seleccionados</h2>
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let analisis of analisisSeleccionados"> {{ analisis.analisis }}</li>
+          <li class="list-group-item" *ngFor="let analisis of analisisService.analisisSeleccionados"> {{ analisis.analisis }}</li>
         </ul>
         <br>
-        <div *ngIf="analisisSeleccionados.length > 0">
+        <div *ngIf="analisisService.analisisSeleccionados.length > 0">
           <button type="button" class="btn btn-primary" (click)="sumarAnalisis()">Sumar precios</button>
           <br>
           <p *ngIf="precios">Total: {{ precios.toFixed(2) }}</p>

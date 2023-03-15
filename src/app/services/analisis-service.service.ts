@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IAnalisis } from '../interfaces/Ianalisis';
 import { Router } from '@angular/router';
@@ -12,12 +12,12 @@ export class AnalisisService {
   private router : Router;
   private cargando =  true;
   public analisis: IAnalisis[];
-  public analisisFiltrado: IAnalisis[];
+  public analisisSeleccionados: IAnalisis[] = [];
   public urlEndPoint:string = 'http://localhost:8080/api/analisis';
 
   constructor(private http: HttpClient) { 
-    this.http = http;
     this.cargarAnalisis();
+
   }
 
   cargarAnalisis(){
@@ -28,6 +28,10 @@ export class AnalisisService {
         this.cargando = false;
       });
     }); 
+  }
+
+  mostrarAnalisis(analisis: IAnalisis){
+    this.analisisSeleccionados.push(analisis);
   }
 
 }

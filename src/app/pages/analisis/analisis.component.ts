@@ -9,19 +9,16 @@ import { IAnalisis } from '../../interfaces/Ianalisis';
 })
 export class AnalisisComponent {
 
-  analisisSeleccionados: IAnalisis[];
   precios: number;
 
   constructor(public analisisService: AnalisisService){
-    this.analisisSeleccionados = [];
   }
 
   mostrarAnalisis(analisis: IAnalisis){
-    this.analisisSeleccionados.push(analisis);
+    this.analisisService.mostrarAnalisis(analisis);
   }
 
   sumarAnalisis(){
-    this.precios = this.analisisSeleccionados.reduce((total, analisis) => total + analisis.precio, 0);
+    this.precios = this.analisisService.analisisSeleccionados.reduce((total, analisis) => total + analisis.precio, 0);
   }
-
 }

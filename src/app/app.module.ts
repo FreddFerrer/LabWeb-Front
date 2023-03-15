@@ -7,7 +7,6 @@ import { AnalisisComponent } from './pages/analisis/analisis.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BuscadorComponent } from './buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     AnalisisComponent,
-    BuscadorComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AnalisisComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
