@@ -13,7 +13,7 @@ export class AnalisisService {
   private cargando =  true;
   public analisis: IAnalisis[];
   public analisisSeleccionados: IAnalisis[] = [];
-  public urlEndPoint:string = 'http://localhost:8080/api/analisis';
+  public urlEndPoint:string = 'https://labweb-production.up.railway.app/api/analisis';
 
   constructor(private http: HttpClient) { 
     this.cargarAnalisis();
