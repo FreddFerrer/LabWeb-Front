@@ -1,23 +1,23 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Lista completa</h2>
-        <ul *ngFor="let analisis of analisisService.analisis" class="list-group">
-          <button type="button" class="list-group-item list-group-item-action"  
+  <div class="row">
+    <div class="col-md-6 scrollable-list">
+      <h2>Lista completa</h2>
+      <ul *ngFor="let analisis of analisisService.analisis" class="list-group">
+        <button type="button" class="list-group-item list-group-item-action"  
           (click)="mostrarAnalisis(analisis)">{{ analisis.analisis }}</button>
-        </ul>
-      </div>
-      <div class="col-md-6">
-        <h2>Seleccionados</h2>
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let analisis of analisisService.analisisSeleccionados"> {{ analisis.analisis }}</li>
-        </ul>
+      </ul>
+    </div>
+    <div class="col-md-6 scrollable-list">
+      <h2>Seleccionados</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let analisis of analisisService.analisisSeleccionados"> {{ analisis.analisis }}</li>
+      </ul>
+      <br>
+      <div *ngIf="analisisService.analisisSeleccionados.length > 0">
+        <button type="button" class="btn btn-primary" (click)="sumarAnalisis()">Sumar precios</button>
         <br>
-        <div *ngIf="analisisService.analisisSeleccionados.length > 0">
-          <button type="button" class="btn btn-primary" (click)="sumarAnalisis()">Sumar precios</button>
-          <br>
-          <p *ngIf="precios">Total: {{ precios.toFixed(2) }}</p>
-        </div>
+        <p *ngIf="precios">Total: {{ precios.toFixed(2) }}</p>
       </div>
     </div>
   </div>
+</div>

@@ -59,3 +59,10 @@ p {
   font-weight: 500;
   margin-top: 20px;
 }
+
+@media (max-width: 767px) {
+  .scrollable-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
